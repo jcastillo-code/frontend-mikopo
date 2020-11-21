@@ -1,0 +1,28 @@
+<div *ngIf="product" class="container mt-5 main-container animated fadeIn fast">
+
+    <h1>{{ product.name }}</h1>
+
+    <div class="row">
+        <!-- Image -->
+        <div class="col-md-5">
+            <img [src]="product.url_image" [alt]="product.name" class="img-thumbnail img-fluid">
+        </div>
+
+        <!-- Information -->
+        <div class="col-md-7">
+
+            <h3>Detalles</h3>
+            <hr>
+            <p class="text-justify">
+                {{ product.description }}
+            </p>
+            <h3>Precio</h3>
+            <p>
+                {{ product.price }}
+            </p>
+
+            <button type="button" class="btn btn-danger" (click)="buyProduct()">Comprar</button>
+        </div>
+    </div>
+
+</div>

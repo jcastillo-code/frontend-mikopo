@@ -1,0 +1,26 @@
+<div class="text-center mt-2">
+    <img src="assets/img/logos.png" width="20%">
+</div>
+
+<div class="col mt-5">
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Encuentra tu articulo" aria-describedby="button-addon2" [(ngModel)]="textSearch" (keydown)="productSearch()">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="productSearch()">Search</button>
+        </div>
+    </div>
+
+    <div class="row m-3">
+
+        <div class="card text-center m-4" *ngFor="let product of products">
+            <img [src]="product.url_image" class="card-img-top" style="width: 185px; height: 175px;" [alt]="product.name" [title]="product.name">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <button type="button" class="btn btn-outline-primary" (click)="showProduct(product.id)">Ver Producto</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
