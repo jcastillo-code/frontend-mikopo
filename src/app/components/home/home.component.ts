@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class HomeComponent implements OnInit {
 
   public textSearch: string;
-  public products:any;
+  public products:Product[];
 
   constructor(private _productService: ProductService, private _router:Router) {
     this.products = [];
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   getProducts(){
-    this._productService.getProducts().subscribe(data =>{
+    this._productService.getProducts().subscribe((data:Product[]) =>{
 
       this.products = data;
     
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
 
   productSearch(){
     if(this.textSearch.length > 1){
-      this._productService.findProduct(this.textSearch).subscribe(data =>{
+      this._productService.findProduct(this.textSearch).subscribe((data:Product[]) =>{
         this.products = data;
       });
     }else{
@@ -41,8 +42,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  showProduct(id){
-    this._router.navigate(['product', id]);
+  showProduct(product:Product){
+    this._router.navigate(['product', product.id]);
   }
 
 }

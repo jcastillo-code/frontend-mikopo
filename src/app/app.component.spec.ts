@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'front-agilesoft'`, () => {
+  it(`should have as title 'front-mikopo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('front-agilesoft');
+    expect(app.title).toEqual('front-mikopo');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('front-agilesoft app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('front-mikopo app is running!');
   });
 });

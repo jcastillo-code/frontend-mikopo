@@ -12,9 +12,11 @@ export class DashboardComponent implements OnInit {
   public Highcharts = Highcharts;
   public chartOptions:any;
   public dataGraphic:any;
+  public preload:boolean
 
   constructor(private _productService: ProductService) { 
     this.dataGraphic = [];
+    this.preload = false;
   }
 
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
       data.forEach( elem =>{
         this.dataGraphic.push({name: elem.name, y: parseInt(elem.y)});
+        this.preload = true;
       });
 
       this.buildGraphic();
